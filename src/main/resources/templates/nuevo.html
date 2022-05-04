@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="uft-8" />
+        <title>[[${contacto.id ne null ? 'Editar contacto' : 'Registro de contacto'}]]</title>
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/all.css}" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+        <div class="row justify-content-center">
+            <div class="col-md6 col-lg-4">
+                <h3>[[${contacto.id ne null ? 'Editar contacto' : 'Registro de contacto'}]]</h3>
+                <br>
+                <form action="" method="POST" th:object="${contacto}">
+                <div class="mb-3">
+                    <label for="nombre">
+                        Nombre:
+                        <input id="nombre" type="text" placeholder="Digite su nombre " th:field="*{nombre}" class="form-control" th:errorClass="is-invalid">	
+                        <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="invalid-feedback"></div>
+                    </label>
+                
+                    
+                
+                </div>
+
+                <div class="mb-3">
+                    <label for="celular">
+                        Celular:
+                        <input id="celular" type="text" placeholder="Digite su celular " th:field="*{celular}" class="form-control" th:errorClass="is-invalid">
+                        
+                        <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}" class="invalid-feedback"></div>
+                    </label>
+                
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">
+                        Email:
+                        <input id="email" type="email" placeholder="Digite su email " th:field="*{email}" class="form-control" th:errorClass="is-invalid">
+                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"></div>
+                    </label>
+                
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="pais">
+                    Pais:
+                    <input id="pais" type="text" placeholder="Digite su pais " th:field="*{pais}" class="form-control" th:errorClass="is-invalid">
+                
+                <div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" class="invalid-feedback"></div>
+                </label>
+                
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="fechaNacimiento">
+                    Fecha Nacimiento:
+                    <input id="fechaNacimiento" type="date" placeholder="Digite su fecha nacimiento " th:field="*{fechaNacimiento}" class="form-control" th:errorClass="is-invalid">
+                    
+                    <div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" class="invalid-feedback"></div>
+                </label>
+                
+                    
+                    </div>
+                   
+                    <div class="text-end">
+                    <button class="btn btn-success"><i class="fas fa-save"></i>
+&nbsp;Guardar</button>
+                    <a href="/" class="btn btn-light ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar</a>
+                    </div>
+
+                </form>        
+            </div>
+        </div>
+                
+        <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>        
+    </body>
+
+</html>
